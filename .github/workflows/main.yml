@@ -20,7 +20,6 @@ jobs:
     env:
       KUBECONFIG: .kubeconfig
     steps:
-      - uses: actions/checkout@master
       - name: Generating .kubeconfig
         uses: digitalocean/action-doctl@v1.6.0
         env:
@@ -30,4 +29,4 @@ jobs:
       - name: Install kubectl
         uses: Azure/setup-kubectl@v1
       - name: Deploy on kubernetes
-        run: kubectl apply -f deployment.yaml
+        run: kubectl rollout restart deployment pam-hello-message
