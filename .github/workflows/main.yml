@@ -1,0 +1,33 @@
+name: CI
+
+on: [push]
+
+jobs:
+  publish-registry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker Login
+        run: echo ${{ secrets.AXLE_REGISTRY_PASSWORD }} | docker login -u ${{ secrets.AXLE_REGISTRY_USERNAME }} --password-stdin registry.axlesoftworks.com
+      - name: Checkout on master
+        uses: actions/checkout@master
+      - name: Build image
+        run: docker build . -t $(echo registry.axlesoftworks.com/$GITHUB_REPOSITORY)
+      - name: Publish image
+        run: docker push registry.axlesoftworks.com/$GITHUB_REPOSITORY
+  publish-kubernetes:
+    needs: publish-registry
+    runs-on: ubuntu-latest
+    env:
+      KUBECONFIG: .kubeconfig
+    steps:
+      - uses: actions/checkout@master
+      - name: Generating .kubeconfig
+        uses: digitalocean/action-doctl@v1.6.0
+        env:
+          DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        with:
+          args: kubernetes cluster kubeconfig show cluster-1 > .kubeconfig
+      - name: Install kubectl
+        uses: Azure/setup-kubectl@v1
+      - name: Deploy on kubernetes
+        run: kubectl apply -f deployment.yaml

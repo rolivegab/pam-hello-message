@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledDiv } from './index.style'
+import { StyledDiv } from '../style'
 import { NextPage } from 'next'
 
 const Index: NextPage = () => (
