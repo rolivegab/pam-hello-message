@@ -7,6 +7,7 @@ const Index: NextPage = () => (
   <>
     <StyledDiv>
       Olá, Pamzinha!
+      Feliz aniversário de namoro, você é a melhor!
     </StyledDiv>
     <span style={{color: 'white'}}>Clique <Link href="bye" ><a style={{color: 'lightblue'}}>aqui</a></Link> para dar tchau</span>
     <GlobalStyle />
