@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "./up.sh -c pamsite-next \"npx next\""
   },
   "repository": {
     "type": "git",
@@ -17,16 +17,38 @@
   },
   "homepage": "https://github.com/rolivegab/pam-hello-message#readme",
   "dependencies": {
-    "@types/node": "^13.7.4",
-    "@types/react": "^16.9.22",
-    "@types/styled-components": "^5.0.0",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/core": "^10.0.35",
+    "@prisma/client": "^2.9.0",
+    "@types/cookies": "^0.7.4",
+    "@types/js-cookie": "^2.2.6",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.14.2",
+    "@types/react": "^16.9.53",
+    "cookies": "^0.8.0",
     "dotenv": "^8.2.0",
-    "ky": "^0.17.0",
-    "next": "^9.2.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^5.0.1",
-    "typescript": "^3.8.2",
+    "framer-motion": "^2.9.4",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "ky": "^0.23.0",
+    "next": "^9.5.5",
+    "prisma-upgrade": "0.0.37",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-hook-form": "^6.9.6",
+    "react-typing-animation": "^1.6.2",
+    "sass": "^1.27.0",
+    "typescript": "^3.9.7",
     "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.9.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "eslint": "^7.12.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
