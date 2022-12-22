@@ -29,7 +29,7 @@
     "dotenv": "^8.2.0",
     "framer-motion": "^2.9.4",
     "js-cookie": "^2.2.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "ky": "^0.23.0",
     "next": "^9.5.5",
     "prisma-upgrade": "0.0.37",
